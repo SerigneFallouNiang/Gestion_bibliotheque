@@ -40,8 +40,8 @@ Route::controller(LivreController::class)->group(function (){
     Route::get('livre', 'index')->name('livres.index');
 
        //ajouter une categorie formulaire et enregistrement
-    // Route::get('categories/ajouter', 'ajouter')->name('categories.ajouter');
-    // Route::post('categories/ajouter', 'enregistrer')->name('categories.ajouter');
+    Route::get('livres/ajouter', 'ajouter')->name('livres.ajouter');
+    Route::post('livres/ajouter', 'enregistrer')->name('livres.ajouter');
 
     // Route::delete('categories{categorie}', 'supprimer')->name('categories.supprimer');
 

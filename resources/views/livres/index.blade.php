@@ -60,7 +60,7 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{$livre->titre}}</h5>
-                                <p class="card-text">Description du livre 1.</p>
+                                <p class="card-text">{{$livre->editeur}}</p>
                                 <a href="#" class="btn btn-primary">Voir les détails</a>
                             </div>
                         </div>
@@ -70,25 +70,7 @@
 
             @endforeach
 
-            <div class="col-md-6 book-card" data-category="non-fiction">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="https://via.placeholder.com/150" class="img-fluid rounded-start" alt="Livre 2">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Livre 2</h5>
-                                <p class="card-text">Description du livre 2.</p>
-                                <a href="#" class="btn btn-primary">Voir les détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+           
     <script>
         const filterButtons = document.querySelectorAll('.btn-group button');
         const bookCards = document.querySelectorAll('.book-card');

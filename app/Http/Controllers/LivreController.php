@@ -12,4 +12,17 @@ class LivreController extends Controller
         $livres = Livre::all();
         return view('livres.index', compact('livres'));
     }
+
+    public function ajouter()
+    {
+        $livres = Livre::all();
+        return view('livres.ajouter', compact('livres'));
+    }
+
+    public function enregistrer(Request $request)
+    {
+        Livre::create($request->all());
+        return redirect()->back();
+
+    }
 }
