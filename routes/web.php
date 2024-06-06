@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LivreController;
 use App\Http\Controllers\CategorieController;
 
 Route::get('/', function () {
@@ -32,5 +33,19 @@ Route::controller(CategorieController::class)->group(function (){
 
     Route::get('/modifier/{id}','modifier')->name('modifier');
     Route::post('/modifier/traitement/','modifierPost')->name('modifier');
+
+});
+
+Route::controller(LivreController::class)->group(function (){
+    Route::get('livre', 'index')->name('livres.index');
+
+       //ajouter une categorie formulaire et enregistrement
+    // Route::get('categories/ajouter', 'ajouter')->name('categories.ajouter');
+    // Route::post('categories/ajouter', 'enregistrer')->name('categories.ajouter');
+
+    // Route::delete('categories{categorie}', 'supprimer')->name('categories.supprimer');
+
+    // Route::get('/modifier/{id}','modifier')->name('modifier');
+    // Route::post('/modifier/traitement/','modifierPost')->name('modifier');
 
 });
