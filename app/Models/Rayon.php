@@ -9,7 +9,7 @@ class Rayon extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'labelle',
+        'libelle',
         'partie',
     ];
 }

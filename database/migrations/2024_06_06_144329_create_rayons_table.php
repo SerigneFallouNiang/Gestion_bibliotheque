@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('rayons', function (Blueprint $table) {
             $table->id();
-            $table->libelle();
-            $table->partie();
+            $table->string('libelle');
+            $table->string('partie');
             $table->timestamps();
         });
     }
