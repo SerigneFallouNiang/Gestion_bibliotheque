@@ -12,7 +12,7 @@
       <div class="col s12">
           <h1>Categorie des livres</h1>
           <hr>
-          <a href="/ajouter" class="btn btn-primary">Ajouter une categorie</a>
+          <a href="{{route('categories.ajouter')}}" class="btn btn-primary">Ajouter une categorie</a>
           <hr>
           @if (session('status'))
               <div class="alert alert-succes">
@@ -42,7 +42,14 @@
                         <td>{{$categorie->description}}</td>
                         <td>
                           <a href="/update-etudiant/{{$categorie->id}}" class="btn btn-info">Modifier</a>
-                          <a href="/delete-etudiant/{{$categorie->id}}" class="btn btn-danger">Supprimer</a>
+                          <form action="{{ route('categories.supprimer', $categorie->id) }}" method="POST"
+                            onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?');"
+                            class="inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="btn btn-danger">Supprimer</button>
+                        </form>
                         </td>
                     </td>
           {{-- pour incrémenter les id  --}}

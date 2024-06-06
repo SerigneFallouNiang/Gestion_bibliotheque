@@ -17,4 +17,26 @@ class CategorieController extends Controller
       {
           return view('categories.ajouter');
       }
+
+    // Enregistrer une nouvelle catégorie
+    public function enregistrer(Request $request)
+    {
+        $request->validate([
+            'libelle' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        Categorie::create($request->all());
+
+        return redirect()->route('categories.index')
+                        ->with('success', 'Catégorie créée avec succès.');
+    }
+
+    public function supprimer(Categorie $categorie)
+    {
+        $categorie->delete();
+
+        return redirect()->route('categories.index')
+                         ->with('success', 'Catégorie supprimée avec succès.');
+    }
 }

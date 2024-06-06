@@ -26,12 +26,12 @@ Route::controller(CategorieController::class)->group(function (){
 
        //ajouter une categorie formulaire et enregistrement
     Route::get('categories/ajouter', 'ajouter')->name('categories.ajouter');
-    // Route::post('categories/store', 'store')->name('categories.store');
+    Route::post('categories/ajouter', 'enregistrer')->name('categories.ajouter');
 
-    
-    // Route::delete('categories{categorie}', 'destroy')->name('categories.destroy');
+    Route::delete('categories{categorie}', 'supprimer')->name('categories.supprimer');
 
-    // Route::get('categories/{id}/edit',  'edit')->name('categories.edit');
+
+    Route::get('categories/{id}/modifier',  'modifier')->name('categories.modifier');
     // Route::put('categories/{categorie}', 'update')->name('categories.update');
 
 
