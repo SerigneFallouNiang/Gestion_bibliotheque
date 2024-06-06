@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('livres', function (Blueprint $table) {
             $table->id();
-            $table->titre();
-            $table->date_de_publication();
-            $table->nombre_de_pages();
-            $table->auteur();
-            $table->isbn();
-            $table->editeur();
+            $table->string('titre');
+            $table->string('date_de_publication');
+            $table->integer('nombre_de_pages');
+            $table->string('auteur');
+            $table->integer('isbn')->unique();
+            $table->string('editeur');
             $table->timestamps();
         });
     }
