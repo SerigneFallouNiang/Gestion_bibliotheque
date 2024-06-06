@@ -41,7 +41,7 @@
                         <td>{{$categorie->libelle}}</td>
                         <td>{{$categorie->description}}</td>
                         <td>
-                          <a href="/update-etudiant/{{$categorie->id}}" class="btn btn-info">Modifier</a>
+                          <a href="/modifier/{{$categorie->id}}" class="btn btn-info">Modifier</a>
                           <form action="{{ route('categories.supprimer', $categorie->id) }}" method="POST"
                             onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?');"
                             class="inline-block">

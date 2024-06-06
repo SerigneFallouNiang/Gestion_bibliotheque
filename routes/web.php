@@ -30,10 +30,7 @@ Route::controller(CategorieController::class)->group(function (){
 
     Route::delete('categories{categorie}', 'supprimer')->name('categories.supprimer');
 
-
-    Route::get('categories/{id}/modifier',  'modifier')->name('categories.modifier');
-    // Route::put('categories/{categorie}', 'update')->name('categories.update');
-
-
+    Route::get('/modifier/{id}','modifier')->name('modifier');
+    Route::post('/modifier/traitement/','modifierPost')->name('modifier');
 
 });

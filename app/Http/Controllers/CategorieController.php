@@ -39,4 +39,28 @@ class CategorieController extends Controller
         return redirect()->route('categories.index')
                          ->with('success', 'Catégorie supprimée avec succès.');
     }
+
+    public function modifier($id)
+    {
+      $categories=Categorie::find($id);
+        return view('categories.modifier', compact('categories'));
+    }
+
+       // Mettre à jour une catégorie spécifique
+       public function modifierPost(Request $request, Categorie $categorie)
+       {
+           $request->validate([
+               'libelle' => 'required|string|max:255',
+               'description' => 'nullable|string',
+           ]);
+           $categorie =Categorie::find($request->id);
+           $categorie->libelle=$request->libelle;
+           $categorie->description=$request->description;
+           $categorie->update();
+ 
+           return redirect()->route('categories.index')
+                            ->with('success', 'Catégorie mise à jour avec succès.');
+       }
+
+ 
 }

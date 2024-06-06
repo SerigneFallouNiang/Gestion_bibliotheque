@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRUD IN LARAVEL 10</title>
+    <title>Bibliothèque</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
     <div class="container ">
      <div class="row">
       <div class="col s12">
-          <h1>AJOUTER UNE CATEGORIE</h1>
+          <h1>Modifier UNE CATEGORIE</h1>
           <hr>
 
           @if (session('status'))
@@ -27,20 +27,20 @@
               </ul>
 
 
-          <form action="{{ route('categories.modifier', $categorie->id) }}" method="POST" class="form-group">
+          <form action="/modifier/traitement/" method="POST" class="form-group">
             @csrf
-            @method('PUT')
+            <input type="text" name="id" style="display: none;"  value="{{$categories->id}}">
             <div class="mb-3">
               <label for="libelle" class="form-label">Libelle</label>
-              <input type="text" class="form-control" id="libelle"  name="libelle">
+              <input type="text" class="form-control" id="libelle"  name="libelle"  value="{{$categories->libelle}}">
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" class="form-control" ></textarea>
+                <textarea name="description" id="description" class="form-control" >value="{{$categories->description}}"</textarea>
               </div>
 
-            <button type="submit" class="btn btn-primary">Ajouter une categorie</button>
+            <button type="submit" class="btn btn-primary">Modifier une categorie</button>
           </form>
          
             
