@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('date_de_publication');
             $table->integer('nombre_de_pages');
             $table->string('auteur');
-            $table->integer('isbn');
+            $table->integer('isbn')->unique();
             $table->string('editeur');
             $table->timestamps();
         });
