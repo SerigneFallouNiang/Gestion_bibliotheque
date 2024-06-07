@@ -29,6 +29,7 @@
 
           <form action="/modifier/traitement/" method="POST" class="form-group">
             @csrf
+            
             <input type="text" name="id" style="display: none;"  value="{{$categories->id}}">
             <div class="mb-3">
               <label for="libelle" class="form-label">Libelle</label>
