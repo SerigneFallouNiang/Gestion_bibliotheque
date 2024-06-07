@@ -12,4 +12,9 @@ class Rayon extends Model
         'libelle',
         'partie',
     ];
+
+    public function livres(): HasMany
+    {
+        return $this->hasMany(Livre::class);
+    }
 }

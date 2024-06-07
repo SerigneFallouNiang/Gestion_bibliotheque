@@ -19,7 +19,7 @@ class RayonController extends Controller
 
     public function enregistrer(Request $request){
         Rayon::create($request->all());
-        return redirect()->back();
+        return redirect()->route('rayons.index')->with('success', 'Le rayon a été mis à jour avec succès.');
     }
 
     public function modifier($id){

@@ -15,5 +15,24 @@ class Livre extends Model
         'auteur',
         'isbn',
         'editeur',
+        'categorie_id',
+        'rayon_id',
     ];
+
+   
+
+    public function categorie()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
+
+    public function rayon()
+    {
+        return $this->belongsTo(Rayon::class);
+    }
+
+    // public function utilisateur()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 }
