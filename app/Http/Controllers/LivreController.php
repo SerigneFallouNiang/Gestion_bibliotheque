@@ -38,10 +38,30 @@ class LivreController extends Controller
         return view('livres.modifier',compact('livres'));
     }
 
-    public function modifierPost(Request $request, Livre $livres){
-        $livres->update($request->all());
-        return redirect()->route('livres.index');
+    // public function modifierlivre(Request $request, Livre $livres){
+    //     $livres->update($request->all());
+    //     return redirect()->route('livres.index');
 
+    // }
 
-    }
+    public function modifierlivre(Request $request){
+        // $request->validate([
+            
+        //     'nom'  => 'required',
+        //     'prenom'  => 'required',
+        //     'classe'  => 'required',
+        // ]);
+
+        $livres =Livre::find($request->id);
+            $livres->titre=$request->titre;
+            $livres->date_de_publication=$request->date_de_publication;
+            $livres->nombre_de_pages=$request->nombre_de_pages;
+            $livres->auteur=$request->auteur;
+            $livres->isbn=$request->isbn;
+            $livres->editeur=$request->editeur;
+            $livres->update();
+
+            return redirect()->route('livres.index');
+
+}
 }

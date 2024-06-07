@@ -46,6 +46,6 @@ Route::controller(LivreController::class)->group(function (){
     Route::get('livres/delete/{id}', 'supprimer')->name('livres.supprimer');
 
     Route::get('livres/modifier/{id}','modifier')->name('modifier');
-    Route::post('/modifier/traitement/','modifierPost')->name('modifier');
+    Route::post('/modifier/traitement/','modifierlivre')->name('modifier');
 
 });
