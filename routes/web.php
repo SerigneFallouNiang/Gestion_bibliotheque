@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\RayonController;
 use App\Http\Controllers\CategorieController;
 
 Route::get('/', function () {
@@ -48,4 +49,10 @@ Route::controller(LivreController::class)->group(function (){
     Route::get('livres/modifier/{id}','modifier')->name('modifier');
     Route::post('/modifier/traitement/','modifierlivre')->name('modifier');
 
+});
+
+
+Route::controller(RayonController::class)->group(function(){
+    Route::get('rayons','index')->name('rayons.index');
+    Route::get('rayons/ajouter', 'ajouter')->name('rayons.ajouter');
 });

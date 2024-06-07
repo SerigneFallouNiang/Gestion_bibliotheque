@@ -45,12 +45,14 @@ class LivreController extends Controller
     // }
 
     public function modifierlivre(Request $request){
-        // $request->validate([
-            
-        //     'nom'  => 'required',
-        //     'prenom'  => 'required',
-        //     'classe'  => 'required',
-        // ]);
+        $request->validate([
+        'titre' => 'required|string|max:255',
+        'auteur' => 'required|string|max:255',
+        'editeur' => 'required|string|max:255',
+        'date_de_publication' => 'required|date',
+        'nombre_de_pages' => 'required|integer',
+        'isbn' => 'string|max:20',
+    ]);
 
         $livres =Livre::find($request->id);
             $livres->titre=$request->titre;

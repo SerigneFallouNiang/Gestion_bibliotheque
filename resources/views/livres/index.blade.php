@@ -9,7 +9,7 @@
     <title>Gestion de livres</title>
     <style>
         .hero {
-            background-image: url('https://via.placeholder.com/1920x1080');
+            background-image: url('https://img.freepik.com/photos-gratuite/librairie-moderne-presentant-rangees-livres-vibrants_60438-3565.jpg?t=st=1717754917~exp=1717758517~hmac=08ee922b1a55c1879816092cd500579d8d974b5e6d6968364bf866c60c8e5ff0&w=826');
             background-size: cover;
             background-position: center;
             height: 500px;
@@ -45,13 +45,13 @@
                     <button type="button" class="btn btn-outline-primary" data-filter="biographie">Biographie</button>
                     <button type="button" class="btn btn-outline-primary" data-filter="jeunesse">Jeunesse</button>
                 </div>
+                <a href="{{route('livres.ajouter')}}" class="btn btn-success float-end">Ajouter un livre</a>
             </div>
         </div>
+        <div class="row col-12">
 
         @foreach($livres as $livre)
-
-        <div class="row">
-            <div class="col-md-6 book-card" data-category="fiction">
+            <div class="col-6 book-card" data-category="fiction">
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -62,16 +62,15 @@
                                 <h5 class="card-title">{{$livre->titre}}</h5>
                                 <p class="card-text">{{$livre->editeur}}</p>
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                   <a onclick="return confirm('Confirmer la suppression')"  href="livres/delete/{{$livre->id}}"><button type="button" class="btn btn-danger">Left</button></a> 
-                                   <a href="livres/modifier/{{$livre->id}}"><button type="button" class="btn btn-warning">Modifier</button></a> 
-                                   <a href=""><button type="button" class="btn btn-success">Right</button></a> 
+                                   <a onclick="return confirm('Confirmer la suppression')"  href="livres/delete/{{$livre->id}}"><button type="button" class="btn btn-outline-primary">Supprimer</button></a> 
+                                   <a href="livres/modifier/{{$livre->id}}"><button type="button" class="btn btn-outline-primary">Modifier</button></a> 
+                                   <a href=""><button type="button" class="btn btn-outline-primary">Detail</button></a> 
                                   </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             @endforeach
 
            
