@@ -12,7 +12,7 @@
     <div class="container mt-5">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Liste des Rayons</h2>
-        <a href="{{ route('rayons.ajouter') }}" class="btn btn-primary">Ajouter un Rayon</a>
+        <a href="rayons/ajouter" class="btn btn-primary">Ajouter un Rayon</a>
     </div>
         <table class="table table-hover table-bordered border-primary">
             <thead class="table-primary">
@@ -31,7 +31,8 @@
                     <td>{{$rayon->partie}}</td>
                     <td>
                         <a href="{{ route('rayons.modifier', $rayon->id) }}" class="btn btn-sm btn-warning">Modifier</a>
-                        <form action="{{ route('rayons.supprimer', $rayon->id) }}" method="POST" class="d-inline">
+                        <form action="{{ route('rayons.supprimer', $rayon->id) }}" method="POST" class="d-inline"
+                            onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette rayon ?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>

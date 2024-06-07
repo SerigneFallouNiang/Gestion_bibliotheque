@@ -60,7 +60,7 @@ Route::controller(RayonController::class)->group(function(){
     Route::get('/modifier/{id}','modifier')->name('rayons.modifier');
     Route::post('/modifier/traitement/','modifierPost')->name('modifier');
 
-    Route::delete('rayons/delete/{id}', 'supprimer')->name('rayons.supprimer');
+    Route::delete('rayons/delete/{rayon}', 'supprimer')->name('rayons.supprimer');
 
 
 });
