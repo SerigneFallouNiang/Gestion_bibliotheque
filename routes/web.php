@@ -54,5 +54,7 @@ Route::controller(LivreController::class)->group(function (){
 
 Route::controller(RayonController::class)->group(function(){
     Route::get('rayons','index')->name('rayons.index');
+    
     Route::get('rayons/ajouter', 'ajouter')->name('rayons.ajouter');
+    Route::post('rayons/enregistrer','enregistrer')->name('rayons.ajouter');
 });
