@@ -61,7 +61,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$livre->titre}}</h5>
                                 <p class="card-text">{{$livre->editeur}}</p>
-                                <a href="#" class="btn btn-primary">Voir les détails</a>
+                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                   <a onclick="return confirm('Confirmer la suppression')"  href="livres/delete/{{$livre->id}}"><button type="button" class="btn btn-danger">Left</button></a> 
+                                   <a href="livres/modifier/{{$livre->id}}"><button type="button" class="btn btn-warning">Modifier</button></a> 
+                                   <a href=""><button type="button" class="btn btn-success">Right</button></a> 
+                                  </div>
                             </div>
                         </div>
                     </div>

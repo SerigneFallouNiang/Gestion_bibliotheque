@@ -43,9 +43,9 @@ Route::controller(LivreController::class)->group(function (){
     Route::get('livres/ajouter', 'ajouter')->name('livres.ajouter');
     Route::post('livres/ajouter', 'enregistrer')->name('livres.ajouter');
 
-    // Route::delete('categories{categorie}', 'supprimer')->name('categories.supprimer');
+    Route::get('livres/delete/{id}', 'supprimer')->name('livres.supprimer');
 
-    // Route::get('/modifier/{id}','modifier')->name('modifier');
-    // Route::post('/modifier/traitement/','modifierPost')->name('modifier');
+    Route::get('livres/modifier/{id}','modifier')->name('modifier');
+    Route::post('/modifier/traitement/','modifierPost')->name('modifier');
 
 });
