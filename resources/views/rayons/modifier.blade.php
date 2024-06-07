@@ -14,20 +14,22 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Ajouter un rayon</h3>
+                        <h3 class="card-title">Modifier le rayon</h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('rayons.ajouter')}}" method="POST">
+                        <form action="/modifier/traitement" method="POST">
                             @csrf
+                            <input type="text" name="id" style="display: none;"  value="{{$rayons->id}}">
+
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Libelle</label>
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Libelle" name="libelle">
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Libelle" name="libelle" value="{{$rayons->libelle}}">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Partie</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="partie"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="partie">{{$rayons->partie}}</textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Ajouter un rayon</button>
+                            <button type="submit" class="btn btn-primary w-100">mettre à jour  le rayon</button>
                         </form>
                     </div>
                 </div>
