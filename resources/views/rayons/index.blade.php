@@ -36,15 +36,15 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
-                        </form>  
+                        </form>
+
+                        
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFuCJvR5YkITJ4Mkh3w5Yb7VZ04f/7GFsiCZuyWb51Y5f6MeVVVtKRxP0" crossorigin="anonymous"></script>
 </body>
 </html>
