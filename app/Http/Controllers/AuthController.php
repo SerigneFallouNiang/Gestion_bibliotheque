@@ -15,14 +15,14 @@ class AuthController extends Controller
        }
 
        public function inscriptionPost(Request $request){
-       
+
         $user= new User();
         $user->nom=$request->nom;
         $user->email=$request->email;
         $user->password=Hash::make($request->password);
         $user->save();
         return redirect()->back();
-    
+
        }
 
        public function connexion(){
@@ -39,4 +39,6 @@ class AuthController extends Controller
         }
      return back()->with('error','vérifier votre mail ou mot de passe');
        }
+
+       
 }

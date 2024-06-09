@@ -9,6 +9,24 @@
         body {
             background-color: #f8f9fa;
         }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -16,47 +34,58 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-primary text-white text-center">
                         <h4 class="mb-0">Ajouter un nouveau livre</h4>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="{{route('livres.ajouter')}}" class="row g-3">
-                          @csrf
+                        <form method="post" action="{{route('livres.ajouter')}}" class="row g-3">
+                            @csrf
                             <div class="col-md-6">
-                                <label for="bookTitle" class="form-label">Titre</label>
+                                <label for="bookTitle" class="form-label">Titre <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="bookTitle" name="titre" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="author" class="form-label">Auteur</label>
+                                <label for="author" class="form-label">Auteur <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="author" name="auteur" required>
                             </div>
                             <div class="col-12">
-                                <label for="publisher" class="form-label">Éditeur</label>
+                                <label for="publisher" class="form-label">Éditeur <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="publisher" name="editeur" required>
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <label for="publicationDate" class="form-label">Date de publication</label>
-                                <input type="date" class="form-control" id="publicationDate" placeholder="jj/mm/aaaa" name="date_de_publication">
+                                <input type="date" class="form-control" id="publicationDate" name="date_de_publication">
+                            </div>
+                            <div class="col-6">
+                                <label for="publicationDate" class="form-label">Image de couverture</label>
+                                <input type="text" class="form-control" id="publicationDate" name="url_image">
                             </div>
                             <div class="col-md-6">
-                                <label for="pageCount" class="form-label">Nombre de pages</label>
-                                <input type="number" class="form-control" id="pageCount" required name="nombre_de_pages">
+                                <label for="pageCount" class="form-label">Nombre de pages <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="pageCount" name="nombre_de_pages" required>
                             </div>
-                            <div class="col-md-4">
-                                <label for="category" class="form-label">Catégorie</label>
-                                <select id="category" class="form-select" required>
-                                    <option value="">Choisir...</option>
-                                    <option>Fiction</option>
-                                    <option>Non-fiction</option>
-                                    <option>Biographie</option>
-                                    <option>Jeunesse</option>
+                            <div class="col-md-6">
+                                <label for="isbn" class="form-label">ISBN</label>
+                                <input type="text" class="form-control" id="isbn" name="isbn">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="category" class="form-label">Catégorie <span class="text-danger">*</span></label>
+                                <select name="categorie_id" id="categorie_id" class="form-select" required>
+                                    <option value="">Choisissez une catégorie</option>
+                                    @foreach ($categories as $categorie)
+                                        <option value="{{ $categorie->id }}">{{ $categorie->libelle }}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-2">
-                                <label for="isbn" class="form-label">ISBN</label>
-                                <input type="text" class="form-control" id="isbn"  name="isbn">
+                            <div class="col-md-6">
+                                <label for="rayon" class="form-label">Rayon <span class="text-danger">*</span></label>
+                                <select name="rayon_id" id="rayon_id" class="form-select" required>
+                                    <option value="">Choisissez un rayon</option>
+                                    @foreach ($rayons as $rayon)
+                                        <option value="{{ $rayon->id }}">{{ $rayon->libelle }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                          
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary">Ajouter le livre</button>
                             </div>

@@ -15,11 +15,12 @@ class Livre extends Model
         'auteur',
         'isbn',
         'editeur',
+        'url_image',
         'categorie_id',
         'rayon_id',
     ];
 
-   
+
 
     public function categorie()
     {

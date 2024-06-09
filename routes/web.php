@@ -19,7 +19,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::get('/connexion','connexion')->name('connexion');
     Route::post('/connexion','connexionPost')->name('connexion');
 
-    // Route::delete('/deconnexion','deconnexion')->name('deconnexion');
+    Route::delete('/deconnexion','deconnexion')->name('deconnexion');
 });
 
 
@@ -46,21 +46,25 @@ Route::controller(LivreController::class)->group(function (){
 
     Route::get('livres/delete/{id}', 'supprimer')->name('livres.supprimer');
 
-    Route::get('livres/modifier/{id}','modifier')->name('modifier');
-    Route::post('/modifier/traitement/','modifierlivre')->name('modifier');
+    Route::get('livres/modifier/{id}','modifier')->name('livres.modifier');
+    Route::post('/modifier-livre','modifierlivre')->name('livres.modifier');
 
 });
 
 
 Route::controller(RayonController::class)->group(function(){
     Route::get('rayons','index')->name('rayons.index');
-    
+
     Route::get('rayons/ajouter', 'ajouter')->name('rayons.ajouter');
     Route::post('rayons/enregistrer','enregistrer')->name('rayons.ajouter');
     Route::get('/modifier/{id}','modifier')->name('rayons.modifier');
-    Route::post('/modifier/traitement/','modifierPost')->name('modifier');
+    Route::post('/traitement','modifierPost')->name('modifier');
 
     Route::delete('rayons/delete/{rayon}', 'supprimer')->name('rayons.supprimer');
 
 
 });
+
+
+
+Route::get('livres/categorie/{id}', [LivreController::class, 'filtrerParCategorie'])->name('livres.categorie');

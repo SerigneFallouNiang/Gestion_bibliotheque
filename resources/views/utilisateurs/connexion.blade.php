@@ -7,43 +7,45 @@
     <title>Laravel 10 Custom Login and Registration - Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
 </head>
 
-<body>
-    <div class="row justify-content-center mt-5">
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="card-title">Connexion</h1>
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('connexion') }}" method="post">
-                        @csrf
-                        @if (Session::has('error'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ Session::get('error') }}
-                            </div>
-                        @endif
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h1 class="card-title text-center mb-0">Connexion</h1>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('connexion') }}" method="post">
+                            @csrf
+                            @if (Session::has('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ Session::get('error') }}
+                                </div>
+                            @endif
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="email"
-                                name="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="password"
-                                name="password">
-                        </div>
-                        <div class="mb-3">
-                            <div class="d-grid">
-                                <button class="btn btn-primary">Connexion</button>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Entrez votre email"
+                                    name="email" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Entrez votre mot de passe" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn btn-primary btn-block">Connexion</button>
+                            </div>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <p class="mb-0">Vous n'avez pas de compte ? <a href="{{ route('inscription') }}">Inscrivez-vous
+                                    ici</a></p>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
