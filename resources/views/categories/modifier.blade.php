@@ -1,55 +1,44 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bibliothèque</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container ">
-     <div class="row">
-      <div class="col s12">
-          <h1>Modifier UNE CATEGORIE</h1>
-          <hr>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Gestion de livres</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Mis à jour du categorie</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/modifier-categorie" method="POST">
+                            @csrf
+                            <input type="text" name="id" style="display: none;"  value="{{$categories->id}}">
 
-          @if (session('status'))
-              <div class="alert alert-succes">
-                {{session('status')}}
-              </div>
-          @endif
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Libelle</label>
+                                <input type="text" class="form-control" id="libelle"  name="libelle"  value="{{$categories->libelle}}">
 
-              <ul>
-                @foreach ($errors->all() as $error)
-                <li class="alert alert-danger">{{$error}}</li>
-                    
-                @endforeach
-              </ul>
-
-
-          <form action="/modifier/traitement/" method="POST" class="form-group">
-            @csrf
-            
-            <input type="text" name="id" style="display: none;"  value="{{$categories->id}}">
-            <div class="mb-3">
-              <label for="libelle" class="form-label">Libelle</label>
-              <input type="text" class="form-control" id="libelle"  name="libelle"  value="{{$categories->libelle}}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                <textarea name="description" id="description" class="form-control" >{{$categories->description}}</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">mettre à jour  le categorie</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" class="form-control" >value="{{$categories->description}}"</textarea>
-              </div>
-
-            <button type="submit" class="btn btn-primary">Modifier une categorie</button>
-          </form>
-         
-            
         </div>
-      </div>
     </div>
 
-        
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFuCJvR5YkITJ4Mkh3w5Yb7VZ04f/7GFsiCZuyWb51Y5f6MeVVVtKRxP0" crossorigin="anonymous"></script>
+</body>
 </html>

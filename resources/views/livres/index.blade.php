@@ -92,9 +92,10 @@
                                     <h5 class="card-title">{{$livre->titre}}</h5>
                                     <ul>
                                         <li>Auteur :{{$livre->auteur}}</li>
-                                        <li>Editeur :{{$livre->editeur}}</li>
                                         <li>{{$livre->nombre_de_pages}} Pages</li>
                                         <li>N~ISBN{{$livre->isbn}}</li>
+                                        <li>Rayon : {{ $livre->rayon->libelle }}</li>
+
                                     </ul>
                                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                        <a onclick="return confirm('Confirmer la suppression')" href="livres/delete/{{$livre->id}}">

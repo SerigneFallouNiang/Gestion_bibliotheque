@@ -40,5 +40,10 @@ class AuthController extends Controller
      return back()->with('error','vérifier votre mail ou mot de passe');
        }
 
-       
+       public function deconnexion(){
+        Auth::logout();
+        return redirect()->route('connexion');
+       }
+
+
 }

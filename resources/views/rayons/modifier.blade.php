@@ -17,7 +17,7 @@
                         <h3 class="card-title">Modifier le rayon</h3>
                     </div>
                     <div class="card-body">
-                        <form action="/modifier/traitement" method="POST">
+                        <form action="/traitement" method="POST">
                             @csrf
                             <input type="text" name="id" style="display: none;"  value="{{$rayons->id}}">
 

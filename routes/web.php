@@ -32,8 +32,8 @@ Route::controller(CategorieController::class)->group(function (){
 
     Route::delete('categories{categorie}', 'supprimer')->name('categories.supprimer');
 
-    Route::get('/modifier/{id}','modifier')->name('modifier');
-    Route::post('/modifier/traitement/','modifierPost')->name('modifier');
+    Route::get('/modifier-categorie/{id}','modifier')->name('modifier')->where('id', '[0-9]+');
+    Route::post('/modifier-categorie','modifierPost')->name('modifier');
 
 });
 
@@ -44,9 +44,9 @@ Route::controller(LivreController::class)->group(function (){
     Route::get('livres/ajouter', 'ajouter')->name('livres.ajouter');
     Route::post('livres/ajouter', 'enregistrer')->name('livres.ajouter');
 
-    Route::get('livres/delete/{id}', 'supprimer')->name('livres.supprimer');
+    Route::get('livres/delete/{id}', 'supprimer')->name('livres.supprimer')->where('id', '[0-9]+');
 
-    Route::get('livres/modifier/{id}','modifier')->name('livres.modifier');
+    Route::get('livres/modifier/{id}','modifier')->name('livres.modifier')->where('id', '[0-9]+');
     Route::post('/modifier-livre','modifierlivre')->name('livres.modifier');
 
 });
@@ -57,7 +57,7 @@ Route::controller(RayonController::class)->group(function(){
 
     Route::get('rayons/ajouter', 'ajouter')->name('rayons.ajouter');
     Route::post('rayons/enregistrer','enregistrer')->name('rayons.ajouter');
-    Route::get('/modifier/{id}','modifier')->name('rayons.modifier');
+    Route::get('/modifier/{id}','modifier')->name('rayons.modifier')->where('id', '[0-9]+');
     Route::post('/traitement','modifierPost')->name('modifier');
 
     Route::delete('rayons/delete/{rayon}', 'supprimer')->name('rayons.supprimer');
@@ -67,4 +67,4 @@ Route::controller(RayonController::class)->group(function(){
 
 
 
-Route::get('livres/categorie/{id}', [LivreController::class, 'filtrerParCategorie'])->name('livres.categorie');
+Route::get('/categorie/{id}', [LivreController::class, 'filtrerParCategorie'])->name('livres.categorie')->where('id', '[0-9]+');
