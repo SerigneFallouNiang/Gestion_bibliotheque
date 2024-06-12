@@ -81,7 +81,8 @@
         </div>
         <div class="row">
             @foreach($livres as $livre)
-                <div class="col-6 book-card mb-3" data-category="{{$livre->categorie->libelle}}">
+                {{-- <div class="col-6 book-card mb-3" data-category="{{$livre->categorie->libelle}}"> --}}
+                    <div class="col-6 book-card mb-3" data-category="{{ $livre->categorie ? $livre->categorie->libelle : 'Unknown' }}">
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-md-4">
