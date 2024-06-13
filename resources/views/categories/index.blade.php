@@ -55,7 +55,7 @@
     <div class="container mt-5">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Liste des Categories</h2>
-        <a href="{{route('categories.ajouter')}}" class="btn btn-primary">Ajouter un Rayon</a>
+        <a href="{{route('categories.ajouter')}}" class="btn btn-primary">Ajouter une categories</a>
     </div>
         <table class="table table-hover table-bordered border-primary">
             <thead class="table-primary">
