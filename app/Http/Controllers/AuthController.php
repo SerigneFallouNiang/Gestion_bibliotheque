@@ -21,7 +21,7 @@ class AuthController extends Controller
         $user->email=$request->email;
         $user->password=Hash::make($request->password);
         $user->save();
-        return redirect()->back();
+        return redirect ('/connexion')->with('success','connexion avec succes');
 
        }
 
@@ -35,7 +35,7 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
         if(Auth::attempt($creditials)){
-            return redirect ('/')->with('success','connexion avec succes');
+            return redirect ('/livre')->with('success','connexion avec succes');
         }
      return back()->with('error','vérifier votre mail ou mot de passe');
        }
